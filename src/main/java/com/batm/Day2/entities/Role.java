@@ -3,12 +3,20 @@ package com.batm.Day2.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Category")
-public class Category {
-    @javax.persistence.Id
+@Table(name = "Role")
+public class Role {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "RoleId")
     private int id;
     private String name;
+
+    public Role() {
+    }
+
+    public Role(Integer id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;

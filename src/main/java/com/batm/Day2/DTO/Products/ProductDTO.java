@@ -1,14 +1,9 @@
-package com.batm.Day2.entities;
+package com.batm.Day2.DTO.Products;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "Category")
-public class Category {
-    @javax.persistence.Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProductDTO {
     private int id;
     private String name;
+    private Integer categoryId;
 
     public int getId() {
         return id;
@@ -24,5 +19,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
     }
 }
