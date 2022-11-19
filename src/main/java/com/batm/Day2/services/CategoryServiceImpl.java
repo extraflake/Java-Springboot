@@ -34,4 +34,15 @@ public class CategoryServiceImpl implements CategoryService {
         categoryRepository.deleteById(id);
         return !categoryRepository.findById(id).isPresent();
     }
+
+    @Override
+    public boolean approval(int id) {
+        // cari data by id
+        Category category = categoryRepository.findById(id).get();
+        // ganti data yang dibutuhkan
+        category.setDelete(true);
+        // di save
+        Category result = categoryRepository.save(category);
+        return result.isDelete();
+    }
 }

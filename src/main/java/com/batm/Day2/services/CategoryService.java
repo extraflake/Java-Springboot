@@ -9,4 +9,5 @@ public interface CategoryService {
     public List<Category> findAllCategories();
     public Category findCategoryById(int id);
     public boolean deleteCategoryById(int id);
+    public boolean approval(int id);
 }

@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, String> {
-    @Query("""
-            select new com.batm.Day2.DTO.User.UserGridDTO(u.username, u.rolename) from User u
-            """)
+    @Query("select new com.batm.Day2.DTO.User.UserGridDTO(u.username, u.role.name) from User u")
     public List<UserGridDTO> getUsernameRoleName();
 }

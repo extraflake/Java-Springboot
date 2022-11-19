@@ -37,7 +37,7 @@ public class CategoryController {
     // save
     // category/save
     @PostMapping("save")
-    public String categorySave(Category category){
+    public String categorySave(Category category) {
         categoryService.saveCategory(category);
         return "redirect:/category";
     }
@@ -47,6 +47,15 @@ public class CategoryController {
     @PostMapping("delete/{id}")
     public String categoryDelete(@PathVariable int id){
         categoryService.deleteCategoryById(id);
+        return "redirect:/category";
+    }
+
+    @PostMapping("approval/{id}")
+    public String approvalCategory(@PathVariable int id) {
+        boolean result = categoryService.approval(id);
+        if(result != false) {
+            return "redirect:/category";
+        }
         return "redirect:/category";
     }
 }
